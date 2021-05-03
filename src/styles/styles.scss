@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  background-color: cadetblue;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: auto 1000px auto;
+  grid-template-rows: 70px 240px 93px auto 125px;
+  min-height: 100vh;
+}
+
+.header {
+  grid-column: 1 / 4;
+  grid-row: 1 / 4;
+  background: #F6D580;
+}
+
+.menu {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  background-color: cornflowerblue;
+}
+
+.content {
+  grid-column: 2 / 3;
+  grid-row: 3 / 5;
+  background-color: cornsilk;
+
+}
+
+
+
