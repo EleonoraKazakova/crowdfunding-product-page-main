@@ -1,6 +1,8 @@
-import React from 'react';
-import './styles/styles';
-import logo from './images/logo-mastercraft.svg';
+import React from 'react'
+import './styles/app'
+import logo from './images/logo-mastercraft.svg'
+import bookmark from './images/icon-bookmark.svg'
+import Reward from './reward'
 
 export default function App() {
 
@@ -19,19 +21,35 @@ export default function App() {
           <div className='buttonRow'>
             <div className='buttonModalWindow'>Back this project</div>
             <div className='buttonBookmark'>
-              <img src="../images/icon-bookmark.svg" alt="" />
+              <img src={bookmark} alt="" />
               Bookmark
             </div>
           </div>
         </div>
 
         <div className='block'>
-          <span>$89,914</span>
-          <span>of $100,000 backed</span>
-          <span>5,007</span>
-          <span>total backers</span>
-          <span>56</span>
-          <span>days left</span>
+
+          <div className='count'>
+            <div className='countPart'>
+              <span className='countText'>$89,914</span>
+              <span>of $100,000 backed</span>
+            </div>
+            <div className='line'></div>
+            <div className='countPart'>
+              <span className='countText'>5,007</span>
+              <span>total backers</span>
+            </div>
+            <div className='line'></div>
+            <div className='countPart'>
+              <span className='countText'>56</span>
+              <span>days left</span>
+            </div>
+
+          </div>
+          <div className='progressBar'>
+            <div className='progressBarActive'></div>
+          </div>
+
         </div>
         <div className='block'>
           <h2>About this project</h2>
@@ -48,6 +66,35 @@ export default function App() {
             Class aptent taciti sociosqu ad litora torquent per conubia
             nostra, per inceptos himenaeos. Nulla ultricies posuere est.
           </p>
+          <div className='rewards'>
+            <Reward
+              title='Bamboo Stand'
+              minPledge={25}
+              text='Aliquam erat volutpat. Pellentesque commodo, eros a
+              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
+              rhoncus mauris.'
+              left={101}
+            />
+
+            <Reward
+              title='Black Edition Stand'
+              minPledge={75}
+              text='Aliquam erat volutpat. Pellentesque commodo, eros a
+              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
+              rhoncus mauris.'
+              left={64}
+            />
+
+            <Reward
+              title='Mahogany Special Edition'
+              minPledge={200}
+              text='Aliquam erat volutpat. Pellentesque commodo, eros a
+              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
+              rhoncus mauris.'
+              left={0}
+            />
+
+          </div>
         </div>
 
       </div>

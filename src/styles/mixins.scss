@@ -1,0 +1,12 @@
+@use 'styleGuide';
+
+@mixin button($height) {
+  background-color: styleGuide.$moderateCyan;
+  height: $height;
+  border-radius: ($height / 2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: styleGuide.$fontWeightLarge;
+}
