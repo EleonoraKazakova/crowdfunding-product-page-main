@@ -9,7 +9,15 @@ export default function App() {
   return (
     <div className='grid'>
       <div className='header'></div>
-      <div className='menu'></div>
+
+      <div className='menu'>
+        <div className='crowndfun'>crowdfund</div>
+        <div className='itemsMenu'>
+          <div>About</div>
+          <div>Discover</div>
+          <div>Get Started</div>
+        </div>
+      </div>
 
       <div className='content'>
         <div className='block titleBlock'>

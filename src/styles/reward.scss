@@ -22,6 +22,7 @@
 .reward-button {
   @include mixins.button(48px);
   width: 157px;
+  cursor: pointer;
 }
 
 .reward-pledge {
@@ -39,4 +40,54 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.reward-modal {
+  display: flex;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.623); /* Black w/ opacity */
+  justify-content: center;
+}
+
+.reward-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 50px;
+  border-radius: 1px solid rgb(221, 220, 220);
+  border-radius: 10px;
+  width: 542px;
+  height: 451px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.reward-modal-button {
+  @include mixins.button(50px);
+  width: 108px;
+  cursor: pointer;
+}
+
+.reward-check {
+  width: 90px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.reward-title {
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.reward-text {
+  text-align: center;
 }
