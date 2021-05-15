@@ -1,33 +1,22 @@
+@use 'styleGuide';
+
 body {
   margin: 0;
-  background-color: cadetblue;
+  background-color: rgb(250, 250, 250);
+  font-family: styleGuide.$font;
+  font-size: 16px;
+  color: styleGuide.$darkGray;
 }
 
-.grid{
-  display: grid;
-  grid-template-columns: auto 1000px auto;
-  grid-template-rows: 70px 240px 93px auto 125px;
-  min-height: 100vh;
+h2, p {
+  margin: 0;
+  padding: 0;
 }
 
-.header {
-  grid-column: 1 / 4;
-  grid-row: 1 / 4;
-  background: #F6D580;
+h2 {
+  color: black;
 }
 
-.menu {
-  grid-column: 1 / 4;
-  grid-row: 1;
-  background-color: cornflowerblue;
+* {
+  box-sizing: border-box;
 }
-
-.content {
-  grid-column: 2 / 3;
-  grid-row: 3 / 5;
-  background-color: cornsilk;
-
-}
-
-
-
