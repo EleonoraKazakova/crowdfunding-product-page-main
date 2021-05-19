@@ -148,3 +148,14 @@
   gap: 25px;
   flex-direction: column;
 }
+
+.modal {
+  @include mixins.modal;
+}
+
+.modal-content{
+  @include mixins.modal-content;
+  width: 732px;
+  height: 90%;
+  overflow: auto;
+}

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/app'
 import logo from './images/logo-mastercraft.svg'
 import bookmark from './images/icon-bookmark.svg'
-import Reward from './reward'
+import DataReward from './dataReward'
 
 export default function App() {
+  const [openModal, setOpenModal] = useState(false)
+  const toggleOpenModal = () => setOpenModal(!openModal)
 
   return (
     <div className='grid'>
@@ -27,7 +29,19 @@ export default function App() {
             A beautiful &amp; handcrafted monitor stand to reduce neck and eye strain.
           </p>
           <div className='buttonRow'>
-            <div className='buttonModalWindow'>Back this project</div>
+            {openModal ? <div className='modal'>
+              <div className='modal-content'>
+
+                <h2>Back this project</h2>
+                <div>Pledge with no reward</div>
+                <DataReward
+                  modal={true}
+                  close={toggleOpenModal}
+                />
+              </div>
+
+            </div> : null}
+            <div className='buttonModalWindow' onClick={toggleOpenModal}>Back this project</div>
             <div className='buttonBookmark'>
               <img src={bookmark} alt="" />
               Bookmark
@@ -74,35 +88,12 @@ export default function App() {
             Class aptent taciti sociosqu ad litora torquent per conubia
             nostra, per inceptos himenaeos. Nulla ultricies posuere est.
           </p>
-          <div className='rewards'>
-            <Reward
-              title='Bamboo Stand'
-              minPledge={25}
-              text='Aliquam erat volutpat. Pellentesque commodo, eros a
-              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
-              rhoncus mauris.'
-              left={101}
-            />
 
-            <Reward
-              title='Black Edition Stand'
-              minPledge={75}
-              text='Aliquam erat volutpat. Pellentesque commodo, eros a
-              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
-              rhoncus mauris.'
-              left={64}
-            />
+          <DataReward
+            modal={false}
+          />
 
-            <Reward
-              title='Mahogany Special Edition'
-              minPledge={200}
-              text='Aliquam erat volutpat. Pellentesque commodo, eros a
-              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
-              rhoncus mauris.'
-              left={0}
-            />
 
-          </div>
         </div>
 
       </div>

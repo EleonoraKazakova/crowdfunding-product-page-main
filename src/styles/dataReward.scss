@@ -1,0 +1,8 @@
+@use 'mixins';
+@use 'styleGuide';
+
+.dataReward-rewards {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}

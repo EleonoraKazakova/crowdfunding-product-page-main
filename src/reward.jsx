@@ -1,38 +1,51 @@
 import React, { useState } from 'react'
 import './styles/reward'
-import check from './images/icon-check.svg'
+import Success from './success'
 
-export default function Reward({ title, minPledge, text, left }) {
+export default function Reward({ title, minPledge, text, left, modal, toggle, selected, close }) {
   const [openModal, setOpenModal] = useState(false)
   const toggleOpenModal = () => setOpenModal(!openModal)
 
+
   return (
-    <div className='reward-block'>
-      <div className='reward-row'>
-        <h2>{title}</h2>
+    <div 
+      className={modal ? 'reward-block-modal' : 'reward-block'} 
+      onClick={modal ? toggle : null}>
+      <div className={modal ? 'reward-modal' : 'reward-row'}>
+        {modal ? <label className="container">
+          <input type="radio" name="radio" checked={selected} />
+          <span className="checkmark" ></span>
+        </label> : null}
+        <h4 className='reward-title-modal'>{title}</h4>
         <div className='reward-pledge'>Pledge ${minPledge} or more</div>
       </div>
-      <div>{text}</div>
-      {openModal ? <div className='reward-modal'>
-        <div className='reward-modal-content'>
-          <img src={check} className='reward-check' />
-          <span className='reward-title'>Thanks for your support!</span>
-          <p className='reward-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nunc lacinia feugiat nulla sed accumsan. Vestibulum cursus in tellus nec
-            viverra.
-          </p>
-          <div className='reward-modal-button' onClick={toggleOpenModal}>Got it!</div>
+
+      <div className={modal ? 'reward-text-modal' : 'reward-text'}>{text}</div>
+
+      {selected ? <div className='reward-modal-bottom'>
+
+        <span>Enter your pledge</span>
+        <div className='reward-modal-input-outline'>
+          <label ><b>$</b></label>
+          <input type="input" className='reward-modal-input' name="firstname" placeholder="0" />
+        </div>
+        <div
+          className={modal ? 'reward-button-modal' : 'reward-button'}
+          onClick={toggleOpenModal}
+        >
+          {modal ? 'Continue' : 'Select Reward'}
         </div>
       </div> : null}
-      <div className='reward-row'>
-        <div className='reward-left'>
-          <span className='reward-left-count'>{left}</span>
-          <span>left</span>
-        </div>
 
-        <div className='reward-button' onClick={toggleOpenModal}>Select Reward</div>
+      {openModal ? <Success close={modal ? close : toggleOpenModal} /> : null}
+
+      <div className='reward-left'>
+        <span className='reward-left-count'>{left}</span>
+        <span>left</span>
       </div>
+
+      <div className={modal ? null : 'reward-button'} onClick={modal ? null : toggleOpenModal}>{modal ? null : 'Select Reward'}</div>
+
     </div>
   )
 }
