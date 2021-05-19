@@ -1,40 +1,6 @@
 @use 'mixins';
 @use 'styleGuide';
 
-.reward-block {
-  border-radius: 6px;
-  border: 2px solid rgb(221, 221, 221);
-  width: 634px;
-  height: 247px;
-  gap: 34px;
-  display: flex;
-  flex-direction: column;
-  padding: 33px;
-}
-
-.reward-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.reward-button {
-  @include mixins.button(48px);
-  width: 157px;
-  cursor: pointer;
-}
-
-.reward-pledge {
-  color: styleGuide.$moderateCyan;
-  font-weight: styleGuide.$fontWeightLarge;
-}
-
-.reward-left-count {
-  font-size: 24pt;
-  font-weight: styleGuide.$fontWeightLarge;
-  color: black;  
-}
 
 .reward-left {
   display: flex;
@@ -42,52 +8,195 @@
   gap: 5px;
 }
 
-.reward-modal {
-  display: flex;
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.623); /* Black w/ opacity */
-  justify-content: center;
-}
-
-.reward-modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 50px;
-  border-radius: 1px solid rgb(221, 220, 220);
-  border-radius: 10px;
-  width: 542px;
-  height: 451px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.reward-modal-button {
-  @include mixins.button(50px);
-  width: 108px;
-  cursor: pointer;
-}
-
-.reward-check {
-  width: 90px;
-  align-self: center;
-  margin-bottom: 20px;
-}
-
-.reward-title {
+.reward-left-count {
+  font-size: 24pt;
+  font-weight: styleGuide.$fontWeightLarge;
   color: black;
-  font-weight: 700;
-  font-size: 24px;
 }
 
-.reward-text {
-  text-align: center;
+.reward-pledge {
+  color: styleGuide.$moderateCyan;
+  font-weight: styleGuide.$fontWeightMedium;
+}
+
+.reward-block {
+  border-radius: 6px;
+  border: 2px solid rgb(221, 221, 221);
+  width: 634px;
+  height: 247px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 33px;
+  align-items: center;
+  justify-content: space-between;
+
+  .reward-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .reward-text {
+    font-size: 16px;
+    display: flex;
+    order: 0;
+  }
+
+  .reward-button {
+    @include mixins.button(48px);
+    width: 157px;
+    cursor: pointer;
+    display: flex;
+    order: 2;
+    margin-left: 292px;
+  }  
+  
+  .reward-text {
+    text-align: center;
+  }
+}
+
+.reward-block-modal {
+  border-radius: 6px;
+  border: 2px solid rgb(221, 221, 221);
+  width: 634px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .reward-left {
+    padding: 33px 0 0 33px;
+  }
+
+  .reward-modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    order: 0;
+    width: 75%;
+    gap: 20px;
+    cursor: pointer;
+    padding: 33px 0 0 20px;
+  }
+
+  .reward-modal-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    order: 2;
+    width: 100%;
+    cursor: pointer;
+    border-top: 2px solid rgb(235, 235, 235);
+    padding: 20px 33px 20px 33px;
+  }
+
+  .reward-modal:hover {
+    color: styleGuide.$darkCyan;
+    font-weight: styleGuide.$fontWeightLarge;
+  }
+
+  .reward-text-modal {
+    font-size: 16px;
+    display: flex;
+    order: 1;
+    padding: 20px 33px 33px 33px;
+  }
+
+  /* The container */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid rgb(209, 209, 209);
+    border-radius: 50%;
+  }
+
+  .container input:checked ~ .checkmark {
+    background-color: white;
+    border-color: rgb(209, 209, 209);
+  }
+
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the indicator (dot/circle) */
+  .container .checkmark::after {
+    top: 4px;
+    left: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: styleGuide.$moderateCyan;
+  }
+
+  .reward-modal-input-outline {
+    width: 100px;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #3cb4ac;
+    height: 48px;
+    border-radius: 24px;
+  }
+
+  .reward-modal-input {
+    border: 0;
+    width: 30px;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+    outline: 0;
+  }
+
+  .reward-button-modal {
+    @include mixins.button(48px);
+    width: 157px;
+    cursor: pointer;
+    display: flex;
+    order: 2;
+  }
+}
+
+.reward-block-modal:hover {
+  .reward-title-modal,
+  .reward-pledge {
+    color: styleGuide.$moderateCyan;
+    font-weight: styleGuide.$fontWeightLarge;
+  }
 }

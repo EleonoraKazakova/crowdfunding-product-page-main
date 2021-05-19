@@ -1,17 +1,7 @@
+@use 'mixins';
 @use 'styleGuide';
 
-@mixin button($height) {
-  background-color: styleGuide.$moderateCyan;
-  height: $height;
-  border-radius: ($height / 2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: styleGuide.$fontWeightLarge;
-}
-
-@mixin modal {
+.success-block {
   display: flex;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -20,19 +10,45 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.623); /* Black w/ opacity */
   justify-content: center;
 }
 
-@mixin modal-content {
+.success-check {
+  width: 90px;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.success-modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 50px;
   border-radius: 1px solid rgb(221, 220, 220);
   border-radius: 10px;
+  width: 542px;
+  height: 451px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+}
+
+.success-text {
+  font-size: 16px;
+  display: flex;
+  order: 0;
+}
+
+.success-title {
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.success-modal-button {
+  @include mixins.button(50px);
+  width: 108px;
+  cursor: pointer;
 }
