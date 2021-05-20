@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import './styles/reward'
 import Success from './success'
 
-export default function Reward({ title, minPledge, text, left, modal, toggle, selected, close }) {
+export default function Reward({ title, minPledge, text, left, modal, toggle, selected, close, addAmount }) {
   const [openModal, setOpenModal] = useState(false)
   const toggleOpenModal = () => setOpenModal(!openModal)
 
+  const [pledge, setPledge] = useState(minPledge)
 
   return (
-    <div 
-      className={modal ? 'reward-block-modal' : 'reward-block'} 
+    <div
+      className={modal ? 'reward-block-modal' : 'reward-block'}
       onClick={modal ? toggle : null}>
       <div className={modal ? 'reward-modal' : 'reward-row'}>
         {modal ? <label className="container">
@@ -23,15 +24,20 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
       <div className={modal ? 'reward-text-modal' : 'reward-text'}>{text}</div>
 
       {selected ? <div className='reward-modal-bottom'>
-
         <span>Enter your pledge</span>
         <div className='reward-modal-input-outline'>
           <label ><b>$</b></label>
-          <input type="input" className='reward-modal-input' name="firstname" placeholder="0" />
+          <input
+            type="input"
+            className='reward-modal-input'
+            name="firstname"
+            value={pledge}
+            onChange={(event) => setPledge(Number(event.target.value)) } 
+          />
         </div>
         <div
           className={modal ? 'reward-button-modal' : 'reward-button'}
-          onClick={toggleOpenModal}
+          onClick={() => {toggleOpenModal(); addAmount(pledge)} }
         >
           {modal ? 'Continue' : 'Select Reward'}
         </div>
@@ -44,7 +50,12 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
         <span>left</span>
       </div>
 
-      <div className={modal ? null : 'reward-button'} onClick={modal ? null : toggleOpenModal}>{modal ? null : 'Select Reward'}</div>
+      <div
+        className={modal ? null : 'reward-button'}
+        onClick={modal ? null : () => { toggleOpenModal(); addAmount(minPledge)} }
+      >
+        {modal ? null : 'Select Reward'}
+      </div>
 
     </div>
   )
