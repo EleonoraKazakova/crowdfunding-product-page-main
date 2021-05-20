@@ -8,6 +8,18 @@ export default function App() {
   const [openModal, setOpenModal] = useState(false)
   const toggleOpenModal = () => setOpenModal(!openModal)
 
+  const [amount, setAmount] = useState(89914)
+  const [backers, setBackers] = useState(5007)
+  
+  const addAmount = (pledge) => {
+    setAmount(amount + pledge)
+    setBackers(backers + 1)
+  }
+
+  const [amountLeft, setAmountLeft] = useState({25: 101, 75: 64, 200: 0})
+  
+  
+
   return (
     <div className='grid'>
       <div className='header'></div>
@@ -37,6 +49,9 @@ export default function App() {
                 <DataReward
                   modal={true}
                   close={toggleOpenModal}
+                  addAmount={addAmount}
+                  amountLeft={amountLeft}
+                  setAmountLeft={setAmountLeft}
                 />
               </div>
 
@@ -53,12 +68,12 @@ export default function App() {
 
           <div className='count'>
             <div className='countPart'>
-              <span className='countText'>$89,914</span>
+              <span className='countText'>{amount}</span>
               <span>of $100,000 backed</span>
             </div>
             <div className='line'></div>
             <div className='countPart'>
-              <span className='countText'>5,007</span>
+              <span className='countText'>{backers}</span>
               <span>total backers</span>
             </div>
             <div className='line'></div>
@@ -91,6 +106,9 @@ export default function App() {
 
           <DataReward
             modal={false}
+            addAmount={addAmount}
+            amountLeft={amountLeft}
+            setAmountLeft={setAmountLeft}
           />
 
 
