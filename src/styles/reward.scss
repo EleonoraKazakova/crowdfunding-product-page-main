@@ -19,6 +19,10 @@
   font-weight: styleGuide.$fontWeightMedium;
 }
 
+.reward-block-inactive {
+  opacity: 0.5;
+}
+
 .reward-block {
   border-radius: 6px;
   border: 2px solid rgb(221, 221, 221);
@@ -53,6 +57,11 @@
     order: 2;
     margin-left: 292px;
   }  
+
+  .reward-button.reward-button-inactive {
+    background-color: black;
+    cursor: default;
+  }
   
   .reward-text {
     text-align: center;
@@ -193,10 +202,12 @@
   }
 }
 
-.reward-block-modal:hover {
+.reward-block-modal:not(.reward-block-inactive):hover {
   .reward-title-modal,
   .reward-pledge {
     color: styleGuide.$moderateCyan;
     font-weight: styleGuide.$fontWeightLarge;
   }
 }
+
+

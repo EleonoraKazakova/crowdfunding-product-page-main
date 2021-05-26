@@ -10,8 +10,8 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
 
   return (
     <div
-      className={modal ? 'reward-block-modal' : 'reward-block'}
-      onClick={modal ? toggle : null}>
+      className={`${modal ? 'reward-block-modal' : 'reward-block'} ${left === 0 ? 'reward-block-inactive' : ''}`}
+      onClick={modal && left > 0 ? toggle : null}>
       <div className={modal ? 'reward-modal' : 'reward-row'}>
         {modal ? <label className="container">
           <input type="radio" name="radio" checked={selected} />
@@ -51,10 +51,11 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
       </div>
 
       <div
-        className={modal ? null : 'reward-button'}
-        onClick={modal ? null : () => { toggleOpenModal(); addAmount(minPledge)} }
+        className={`${modal ? null : 'reward-button'} ${left === 0 ? 'reward-button-inactive' : ''}`}
+        onClick={modal || left === 0 ? null : () => { toggleOpenModal(); addAmount(minPledge)} }
       >
-        {modal ? null : 'Select Reward'}
+        {modal ? null : (left === 0 ? 'Out of stock' : 'Select Reward')}
+        
       </div>
 
     </div>
