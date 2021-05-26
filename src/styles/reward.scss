@@ -47,6 +47,7 @@
     font-size: 16px;
     display: flex;
     order: 0;
+    text-align: center;
   }
 
   .reward-button {
@@ -62,10 +63,6 @@
     background-color: black;
     cursor: default;
   }
-  
-  .reward-text {
-    text-align: center;
-  }
 }
 
 .reward-block-modal {
@@ -80,7 +77,7 @@
     padding: 33px 0 0 33px;
   }
 
-  .reward-modal {
+  .reward-row {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -92,6 +89,11 @@
     padding: 33px 0 0 20px;
   }
 
+  .reward-row:hover {
+    color: styleGuide.$darkCyan;
+    font-weight: styleGuide.$fontWeightLarge;
+  }
+
   .reward-modal-bottom {
     display: flex;
     justify-content: space-between;
@@ -101,14 +103,9 @@
     cursor: pointer;
     border-top: 2px solid rgb(235, 235, 235);
     padding: 20px 33px 20px 33px;
-  }
+  }  
 
-  .reward-modal:hover {
-    color: styleGuide.$darkCyan;
-    font-weight: styleGuide.$fontWeightLarge;
-  }
-
-  .reward-text-modal {
+  .reward-text {
     font-size: 16px;
     display: flex;
     order: 1;
@@ -193,7 +190,7 @@
     outline: 0;
   }
 
-  .reward-button-modal {
+  .reward-button {
     @include mixins.button(48px);
     width: 157px;
     cursor: pointer;

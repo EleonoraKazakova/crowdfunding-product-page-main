@@ -12,7 +12,7 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
     <div
       className={`${modal ? 'reward-block-modal' : 'reward-block'} ${left === 0 ? 'reward-block-inactive' : ''}`}
       onClick={modal && left > 0 ? toggle : null}>
-      <div className={modal ? 'reward-modal' : 'reward-row'}>
+      <div className='reward-row'>
         {modal ? <label className="container">
           <input type="radio" name="radio" checked={selected} />
           <span className="checkmark" ></span>
@@ -21,7 +21,7 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
         <div className='reward-pledge'>Pledge ${minPledge} or more</div>
       </div>
 
-      <div className={modal ? 'reward-text-modal' : 'reward-text'}>{text}</div>
+      <div className='reward-text'>{text}</div>
 
       {selected ? <div className='reward-modal-bottom'>
         <span>Enter your pledge</span>
@@ -32,14 +32,14 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
             className='reward-modal-input'
             name="firstname"
             value={pledge}
-            onChange={(event) => setPledge(Number(event.target.value)) } 
+            onChange={(event) => setPledge(Number(event.target.value))}
           />
         </div>
         <div
-          className={modal ? 'reward-button-modal' : 'reward-button'}
-          onClick={() => {toggleOpenModal(); addAmount(pledge)} }
+          className='reward-button'
+          onClick={() => { toggleOpenModal(); addAmount(pledge) }}
         >
-          {modal ? 'Continue' : 'Select Reward'}
+          Continue
         </div>
       </div> : null}
 
@@ -50,13 +50,16 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
         <span>left</span>
       </div>
 
-      <div
-        className={`${modal ? null : 'reward-button'} ${left === 0 ? 'reward-button-inactive' : ''}`}
-        onClick={modal || left === 0 ? null : () => { toggleOpenModal(); addAmount(minPledge)} }
-      >
-        {modal ? null : (left === 0 ? 'Out of stock' : 'Select Reward')}
-        
-      </div>
+      {
+        modal
+          ? null
+          : <div
+            className={`reward-button ${left === 0 ? 'reward-button-inactive' : ''}`}
+            onClick={left === 0 ? null : () => { toggleOpenModal(); addAmount(minPledge) }}
+          >
+            {left === 0 ? 'Out of stock' : 'Select Reward'}
+          </div>
+      }
 
     </div>
   )
