@@ -10,15 +10,16 @@ export default function App() {
 
   const [amount, setAmount] = useState(89914)
   const [backers, setBackers] = useState(5007)
-  
+
   const addAmount = (pledge) => {
     setAmount(amount + pledge)
     setBackers(backers + 1)
   }
 
-  const [amountLeft, setAmountLeft] = useState({25: 101, 75: 64, 200: 0})
-  
-  
+  const [amountLeft, setAmountLeft] = useState({ 25: 101, 75: 64, 200: 0 })
+
+  const percentProgressBar = amount * 100 / 100000
+
 
   return (
     <div className='grid'>
@@ -68,12 +69,12 @@ export default function App() {
 
           <div className='count'>
             <div className='countPart'>
-              <span className='countText'>{amount}</span>
+              <span className='countText'>${amount.toLocaleString('en-US')}</span>
               <span>of $100,000 backed</span>
             </div>
             <div className='line'></div>
             <div className='countPart'>
-              <span className='countText'>{backers}</span>
+              <span className='countText'>{backers.toLocaleString('en-US')}</span>
               <span>total backers</span>
             </div>
             <div className='line'></div>
@@ -84,7 +85,10 @@ export default function App() {
 
           </div>
           <div className='progressBar'>
-            <div className='progressBarActive'></div>
+            <div
+              className='progressBarActive'
+              style={{ width: Math.min(percentProgressBar, 100)+ '%' }}>
+            </div>
           </div>
 
         </div>
