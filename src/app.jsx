@@ -47,7 +47,6 @@ export default function App() {
               <div className='app-modal-content' onClick={(event) => event.stopPropagation()}>
                 <CloseSign className='app-closeSign' fill='black' onClick={toggleOpenModal} />
                 <h2>Back this project</h2>
-                <div>Pledge with no reward</div>
                 <DataReward
                   modal={true}
                   close={toggleOpenModal}

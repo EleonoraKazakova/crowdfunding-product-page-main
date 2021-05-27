@@ -11,14 +11,15 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
   return (
     <div
       className={`${modal ? 'reward-block-modal' : 'reward-block'} ${left === 0 ? 'reward-block-inactive' : ''}`}
-      onClick={modal && left > 0 ? toggle : null}>
+      onClick={modal && left !== 0 ? toggle : null}
+    >
       <div className='reward-row'>
         {modal ? <label className="container">
           <input type="radio" name="radio" checked={selected} />
           <span className="checkmark" ></span>
         </label> : null}
         <h4 className='reward-title-modal'>{title}</h4>
-        <div className='reward-pledge'>Pledge ${minPledge} or more</div>
+        {minPledge > 0 ? <div className='reward-pledge'>Pledge ${minPledge} or more</div> : null}
       </div>
 
       <div className='reward-text'>{text}</div>
@@ -45,10 +46,14 @@ export default function Reward({ title, minPledge, text, left, modal, toggle, se
 
       {openModal ? <Success close={modal ? close : toggleOpenModal} /> : null}
 
-      <div className='reward-left'>
-        <span className='reward-left-count'>{left}</span>
-        <span>left</span>
-      </div>
+      {
+        left !== null
+          ? <div className='reward-left'>
+            <span className='reward-left-count'>{left}</span>
+            <span>left</span>
+          </div>
+          : null
+      }
 
       {
         modal
