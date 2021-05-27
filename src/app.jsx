@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './styles/app'
-import logo from './images/logo-mastercraft.svg'
-import bookmark from './images/icon-bookmark.svg'
+import Logo from './images/logo-mastercraft.svg'
+import CloseSign from './images/icon-close-modal.svg'
+import Bookmark from './images/icon-bookmark.svg'
 import DataReward from './dataReward'
 
 export default function App() {
@@ -20,31 +21,31 @@ export default function App() {
 
   const percentProgressBar = amount * 100 / 100000
 
-
+  
   return (
-    <div className='grid'>
-      <div className='header'></div>
+    <div className='app-grid'>
+      <div className='app-header'></div>
 
-      <div className='menu'>
-        <div className='crowndfun'>crowdfund</div>
-        <div className='itemsMenu'>
+      <div className='app-menu'>
+        <div className='app-crowndfun'>crowdfund</div>
+        <div className='app-itemsMenu'>
           <div>About</div>
           <div>Discover</div>
           <div>Get Started</div>
         </div>
       </div>
 
-      <div className='content'>
-        <div className='block titleBlock'>
-          <img src={logo} className='logo' />
+      <div className='app-content'>
+        <div className='app-block app-titleBlock'>
+          <Logo className='app-logo' />
           <h2>Mastercraft Bamboo Monitor Riser</h2>
-          <p className='subtitle'>
+          <p className='app-subtitle'>
             A beautiful &amp; handcrafted monitor stand to reduce neck and eye strain.
           </p>
-          <div className='buttonRow'>
-            {openModal ? <div className='modal'>
-              <div className='modal-content'>
-
+          <div className='app-buttonRow'>
+            {openModal ? <div className='app-modal' onClick={toggleOpenModal}>
+              <div className='app-modal-content' onClick={(event) => event.stopPropagation()}>
+                <CloseSign className='app-closeSign' fill='black' onClick={toggleOpenModal} />
                 <h2>Back this project</h2>
                 <div>Pledge with no reward</div>
                 <DataReward
@@ -57,42 +58,42 @@ export default function App() {
               </div>
 
             </div> : null}
-            <div className='buttonModalWindow' onClick={toggleOpenModal}>Back this project</div>
-            <div className='buttonBookmark'>
-              <img src={bookmark} alt="" />
+            <div className='app-buttonModalWindow' onClick={toggleOpenModal}>Back this project</div>
+            <div className='app-buttonBookmark'>
+              <Bookmark />
               Bookmark
             </div>
           </div>
         </div>
 
-        <div className='block'>
+        <div className='app-block'>
 
-          <div className='count'>
-            <div className='countPart'>
-              <span className='countText'>${amount.toLocaleString('en-US')}</span>
+          <div className='app-count'>
+            <div className='app-countPart'>
+              <span className='app-countText'>${amount.toLocaleString('en-US')}</span>
               <span>of $100,000 backed</span>
             </div>
-            <div className='line'></div>
-            <div className='countPart'>
-              <span className='countText'>{backers.toLocaleString('en-US')}</span>
+            <div className='app-line'></div>
+            <div className='app-countPart'>
+              <span className='app-countText'>{backers.toLocaleString('en-US')}</span>
               <span>total backers</span>
             </div>
-            <div className='line'></div>
-            <div className='countPart'>
-              <span className='countText'>56</span>
+            <div className='app-line'></div>
+            <div className='app-countPart'>
+              <span className='app-countText'>56</span>
               <span>days left</span>
             </div>
 
           </div>
-          <div className='progressBar'>
+          <div className='app-progressBar'>
             <div
-              className='progressBarActive'
+              className='app-progressBarActive'
               style={{ width: Math.min(percentProgressBar, 100)+ '%' }}>
             </div>
           </div>
 
         </div>
-        <div className='block'>
+        <div className='app-block'>
           <h2>About this project</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
