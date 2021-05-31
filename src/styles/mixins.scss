@@ -9,6 +9,11 @@
   justify-content: center;
   color: white;
   font-weight: styleGuide.$fontWeightLarge;
+  cursor: pointer;
+
+  &:hover {
+    background-color: styleGuide.$darkCyan;
+  }
 }
 
 @mixin modal {
