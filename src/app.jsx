@@ -21,6 +21,8 @@ export default function App() {
 
   const percentProgressBar = amount * 100 / 100000
 
+  const [bookmark, setBookmark] = useState(false)
+  const toggleBookmark = () => setBookmark(!bookmark)
   
   return (
     <div className='app-grid'>
@@ -58,10 +60,12 @@ export default function App() {
 
             </div> : null}
             <div className='app-buttonModalWindow' onClick={toggleOpenModal}>Back this project</div>
-            <div className='app-buttonBookmark'>
+
+            <div className={`app-buttonBookmark ${bookmark ? 'app-buttonBookmarked' : ''}`} onClick={toggleBookmark}>
               <Bookmark />
-              Bookmark
+              <div className='app-bookmark-text'>{bookmark ? 'Bookmarked' : 'Bookmark'}</div>
             </div>
+
           </div>
         </div>
 
