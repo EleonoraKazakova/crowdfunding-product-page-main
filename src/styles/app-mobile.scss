@@ -1,0 +1,61 @@
+@use 'mixins';
+@use 'styleGuide';
+
+@media  (max-width: 699px){
+  .app-grid{
+    display: grid;
+    grid-template-columns: auto 330px auto;
+    grid-template-rows: 70px 240px 93px auto 125px;
+    min-height: 100vh;
+  }
+
+  .app-buttonBookmark-text {
+    display: none;
+  }
+
+  .app-line {
+    width: 80px;
+    height: 1px;
+  }
+  
+  .app-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .app-countPart {
+    align-items: center;
+  }
+
+  .app-progressBar {
+    width: 280px;
+    //margin-top: 10px;
+  }
+
+  .app-itemsMenu {
+    display: none;
+  }
+
+  .app-menu {
+    grid-column: 2;
+  }
+
+  .app-block {
+    padding: 40px 25px 40px 25px;
+    gap: 20px;
+  }
+
+  .app-subtitle {
+    margin: 8px 0 8px;
+  }
+
+  .app-logo {
+    margin-top: -70px;
+  }
+
+  .app-modal-content {
+    width: 325px;
+  }
+}

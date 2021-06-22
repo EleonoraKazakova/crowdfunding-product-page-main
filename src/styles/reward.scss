@@ -1,6 +1,90 @@
 @use 'mixins';
 @use 'styleGuide';
 
+@media (max-width: 699px) {
+  .reward-block-modal {
+    width: 280px;
+
+    .reward-row {
+      display: grid;
+      grid-template-columns: 20px auto;
+      grid-template-rows: auto auto;
+      text-align: left;
+      align-items: center;
+      row-gap: 5px;
+      column-gap: 20px;
+    }
+
+    .reward-title-modal {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .reward-pledge {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .container {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+  }
+
+  .reward-block {
+    width: 280px;
+    height: 370px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .reward-row {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+
+  .reward-text {
+    text-align: left;
+  }
+}
+
+@media (min-width: 700px) {
+  .reward-block-modal {
+    width: 634px;
+
+    .reward-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      order: 0;
+      width: 75%;
+      gap: 20px;
+    }
+  }
+
+  .reward-block {
+    width: 634px;
+    height: 247px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .reward-button {
+    margin-left: 292px;
+  }
+
+  .reward-row {
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .reward-text {
+    text-align: center;
+  }
+}
 
 .reward-left {
   display: flex;
@@ -26,20 +110,12 @@
 .reward-block {
   border-radius: 6px;
   border: 2px solid rgb(221, 221, 221);
-  width: 634px;
-  height: 247px;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   padding: 33px;
-  align-items: center;
   justify-content: space-between;
 
   .reward-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
   }
 
@@ -47,17 +123,14 @@
     font-size: 16px;
     display: flex;
     order: 0;
-    text-align: center;
   }
 
   .reward-button {
     @include mixins.button(48px);
     width: 157px;
-    cursor: pointer;
     display: flex;
     order: 2;
-    margin-left: 292px;
-  }  
+  }
 
   .reward-button.reward-button-inactive {
     background-color: black;
@@ -68,7 +141,6 @@
 .reward-block-modal {
   border-radius: 6px;
   border: 2px solid rgb(221, 221, 221);
-  width: 634px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -78,13 +150,6 @@
   }
 
   .reward-row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    order: 0;
-    width: 75%;
-    gap: 20px;
     cursor: pointer;
     padding: 33px 0 0 20px;
   }
@@ -103,7 +168,7 @@
     cursor: pointer;
     border-top: 2px solid rgb(235, 235, 235);
     padding: 20px 33px 20px 33px;
-  }  
+  }
 
   .reward-text {
     font-size: 16px;
@@ -193,7 +258,6 @@
   .reward-button {
     @include mixins.button(48px);
     width: 157px;
-    cursor: pointer;
     display: flex;
     order: 2;
   }
@@ -206,5 +270,3 @@
     font-weight: styleGuide.$fontWeightLarge;
   }
 }
-
-

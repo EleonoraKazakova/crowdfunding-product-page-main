@@ -1,6 +1,42 @@
 @use 'mixins';
 @use 'styleGuide';
 
+@media  (max-width: 699px){
+  .success-modal-content {
+    width: 325px;
+    height: 382px;
+    padding: 33px 28px 42px 28px;
+  }
+
+  .success-title {
+    font-size: 22px;
+  }
+
+  .success-text {
+    line-height: 1.5;
+  }
+}
+
+@media  (min-width: 700px){
+  .success-modal-content {
+    width: 542px;
+    height: 451px;
+    padding: 50px;
+    gap: 30px;
+    
+  }
+
+  .success-text {
+    line-height: 2;
+  }
+
+  .success-title {
+    font-size: 24px;
+  }
+
+}
+
+
 .success-block {
   display: flex;
   position: fixed; /* Stay in place */
@@ -16,35 +52,31 @@
 }
 
 .success-check {
-  width: 90px;
   align-self: center;
-  margin-bottom: 20px;
 }
 
 .success-modal-content {
   background-color: #fefefe;
   margin: auto;
-  padding: 50px;
-  border-radius: 1px solid rgb(221, 220, 220);
+  border: 1px solid rgb(221, 220, 220);
   border-radius: 10px;
-  width: 542px;
-  height: 451px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  justify-content: space-between;
 }
 
 .success-text {
   font-size: 16px;
   display: flex;
   order: 0;
+  
+  text-align: center;
 }
 
 .success-title {
   color: black;
   font-weight: 700;
-  font-size: 24px;
 }
 
 .success-modal-button {

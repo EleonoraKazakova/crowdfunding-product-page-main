@@ -1,47 +1,98 @@
 @use 'mixins';
 @use 'styleGuide';
+//@use 'app-mobile';
 
-.app-grid{
-  display: grid;
-  grid-template-columns: auto 730px auto;
-  grid-template-rows: 70px 240px 93px auto 125px;
-  min-height: 100vh;
+@media (min-width: 700px) {
+  .app-grid {
+    display: grid;
+    grid-template-columns: auto 730px auto;
+    grid-template-rows: 70px 240px 93px auto 125px;
+    min-height: 100vh;
+  }
+
+  .app-buttonBookmark{
+    width: 190px;
+  }
+
+  .app-line {
+    width: 1px;
+    height: 64px;
+  }
+
+  .app-count {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .app-progressBar {
+    width: 633px;
+    margin-top: 40px;
+  }
+
+  .app-hamburger {
+    display: none;
+  }
+
+  .app-itemsMenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20%;
+    font-size: 14pt;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .app-menu {
+    margin: 0 167px 0 167px;
+    grid-column: 1 / 4;
+  }
+
+  .app-block {
+    padding: 50px;
+    gap: 50px;
+  }
+
+  .app-subtitle {
+    margin: 25px 0 44px;
+  }
+
+  .app-logo {
+    margin-top: -78px;
+    margin-bottom: 35px;
+  }
+
+  .app-modal-content {
+    width: 732px;
+  }
 }
 
 .app-header {
   grid-column: 1 / 4;
   grid-row: 1 / 4;
-  background: #F6D580;
+  background: #f6d580;
   background-image: url(../images/image-hero-desktop.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .app-menu {
-  grid-column: 1 / 4;
   grid-row: 1;
   display: flex;
   flex-direction: row;
   color: white;
   align-items: flex-end;
-  margin: 0 167px 0 167px;
   justify-content: space-between;
 }
 
-.app-crowndfun {
+.app-crowdfund {
   width: 80%;
   font-size: 24pt;
   font-weight: 700;
 }
-.app-itemsMenu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 20%;
-  font-size: 14pt;
-  font-weight: 400;
-  cursor: pointer;
-}
+
 
 .app-content {
   grid-column: 2 / 3;
@@ -57,8 +108,6 @@
   border: 2px solid rgb(221, 221, 221);
   display: flex;
   flex-direction: column;
-  padding: 50px;
-  gap: 50px;
 }
 
 .app-buttonModalWindow {
@@ -68,7 +117,7 @@
 
 .app-buttonBookmark {
   background-color: styleGuide.$moderateCyan;
-  width: 190px;
+  
   height: 56px;
   border-radius: 28px;
   display: flex;
@@ -90,7 +139,7 @@
   }
 }
 
-.app-bookmark-text {
+.app-buttonBookmark-text {
   text-align: center;
   flex-grow: 1;
 }
@@ -105,15 +154,9 @@
   text-align: center;
 }
 
-.app-subtitle {
-  margin: 25px 0 44px;
-}
-
 .app-logo {
   width: 56px;
-  margin-top: -78px;
   align-self: center;
-  margin-bottom: 35px;
 }
 
 .app-closeSign {
@@ -126,12 +169,7 @@
   opacity: 1;
 }
 
-.app-count {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-}
+
 
 .app-countPart {
   display: flex;
@@ -147,17 +185,14 @@
 }
 
 .app-line {
-  width: 1px;
   background-color: darkgray;
-  height: 64px;
 }
 
 .app-progressBar {
-  width: 633px;
   height: 12px;
   background-color: rgb(214, 214, 214);
   border-radius: 6px;
-  margin-top: 40px;
+  
 }
 
 .app-progressBarActive {
@@ -176,9 +211,8 @@
   @include mixins.modal;
 }
 
-.app-modal-content{
+.app-modal-content {
   @include mixins.modal-content;
-  width: 732px;
   height: 90%;
   overflow: auto;
 }

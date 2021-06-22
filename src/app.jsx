@@ -4,6 +4,7 @@ import Logo from './images/logo-mastercraft.svg'
 import CloseSign from './images/icon-close-modal.svg'
 import Bookmark from './images/icon-bookmark.svg'
 import DataReward from './dataReward'
+import Hamburger from './images/icon-hamburger.svg' 
 
 export default function App() {
   const [openModal, setOpenModal] = useState(false)
@@ -23,18 +24,19 @@ export default function App() {
 
   const [bookmark, setBookmark] = useState(false)
   const toggleBookmark = () => setBookmark(!bookmark)
-  
+
   return (
     <div className='app-grid'>
       <div className='app-header'></div>
 
       <div className='app-menu'>
-        <div className='app-crowndfun'>crowdfund</div>
+        <div className='app-crowdfund'>crowdfund</div>
         <div className='app-itemsMenu'>
           <div>About</div>
           <div>Discover</div>
           <div>Get Started</div>
         </div>
+        <Hamburger className='app-hamburger' />
       </div>
 
       <div className='app-content'>
@@ -63,7 +65,7 @@ export default function App() {
 
             <div className={`app-buttonBookmark ${bookmark ? 'app-buttonBookmarked' : ''}`} onClick={toggleBookmark}>
               <Bookmark />
-              <div className='app-bookmark-text'>{bookmark ? 'Bookmarked' : 'Bookmark'}</div>
+              <div className='app-buttonBookmark-text'>{bookmark ? 'Bookmarked' : 'Bookmark'}</div>
             </div>
 
           </div>
@@ -91,7 +93,7 @@ export default function App() {
           <div className='app-progressBar'>
             <div
               className='app-progressBarActive'
-              style={{ width: Math.min(percentProgressBar, 100)+ '%' }}>
+              style={{ width: Math.min(percentProgressBar, 100) + '%' }}>
             </div>
           </div>
 
@@ -104,7 +106,10 @@ export default function App() {
             viverra. Aliquam erat volutpat. Pellentesque commodo, eros a
             pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
             rhoncus mauris. Sed ornare aliquet lorem. Nullam suscipit sed augue
-            ac efficitur. Cras pretium massa non porttitor blandit. Sed ut
+            ac efficitur.
+          </p>
+          <p>
+            Cras pretium massa non porttitor blandit. Sed ut
             euismod velit. Praesent eleifend dolor eget nisl pellentesque,
             vitae egestas arcu aliquet. Nam ultricies fringilla aliquet.
             Cras venenatis porttitor leo, vel interdum arcu ornare id.
