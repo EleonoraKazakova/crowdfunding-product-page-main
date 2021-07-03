@@ -1,4 +1,5 @@
 # Crowdfunding product page
+https://eleonorakazakova.github.io/crowdfunding-product-page-main/
 
 This is a solution to the Crowdfunding product page coding challenge on Frontend Mentor. I used Frontend Mentor challenges to improve my coding skills by building realistic projects.
 
