@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import './styles/app'
+
 import Logo from './images/logo-mastercraft.svg'
 import CloseSign from './images/icon-close-modal.svg'
 import Bookmark from './images/icon-bookmark.svg'
 import DataReward from './dataReward'
-import Hamburger from './images/icon-hamburger.svg' 
+import Hamburger from './images/icon-hamburger.svg'
 
 export default function App() {
   const [openModal, setOpenModal] = useState(false)
@@ -30,7 +31,7 @@ export default function App() {
       <div className='app-header'></div>
 
       <div className='app-menu'>
-        <div className='app-crowdfund'>crowdfund</div>
+        <p className='app-crowdfund'>crowdfund</p>
         <div className='app-itemsMenu'>
           <div>About</div>
           <div>Discover</div>
@@ -49,8 +50,10 @@ export default function App() {
           <div className='app-buttonRow'>
             {openModal ? <div className='app-modal' onClick={toggleOpenModal}>
               <div className='app-modal-content' onClick={(event) => event.stopPropagation()}>
-                <CloseSign className='app-closeSign' fill='black' onClick={toggleOpenModal} />
-                <h2>Back this project</h2>
+                <div className='app-title'>
+                  <CloseSign className='app-closeSign' fill='black' onClick={toggleOpenModal} />
+                  <h2>Back this project</h2>
+                </div>
                 <DataReward
                   modal={true}
                   close={toggleOpenModal}
@@ -100,23 +103,24 @@ export default function App() {
         </div>
         <div className='app-block'>
           <h2>About this project</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nunc lacinia feugiat nulla sed accumsan. Vestibulum cursus in tellus nec
-            viverra. Aliquam erat volutpat. Pellentesque commodo, eros a
-            pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
-            rhoncus mauris. Sed ornare aliquet lorem. Nullam suscipit sed augue
-            ac efficitur.
-          </p>
-          <p>
-            Cras pretium massa non porttitor blandit. Sed ut
-            euismod velit. Praesent eleifend dolor eget nisl pellentesque,
-            vitae egestas arcu aliquet. Nam ultricies fringilla aliquet.
-            Cras venenatis porttitor leo, vel interdum arcu ornare id.
-            Class aptent taciti sociosqu ad litora torquent per conubia
-            nostra, per inceptos himenaeos. Nulla ultricies posuere est.
-          </p>
-
+          <div className='app-text'>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Nunc lacinia feugiat nulla sed accumsan. Vestibulum cursus in tellus nec
+              viverra. Aliquam erat volutpat. Pellentesque commodo, eros a
+              pharetra pharetra, ipsum mi convallis erat, non cursus ex augue
+              rhoncus mauris. Sed ornare aliquet lorem. Nullam suscipit sed augue
+              ac efficitur.
+            </p>
+            <p>
+              Cras pretium massa non porttitor blandit. Sed ut
+              euismod velit. Praesent eleifend dolor eget nisl pellentesque,
+              vitae egestas arcu aliquet. Nam ultricies fringilla aliquet.
+              Cras venenatis porttitor leo, vel interdum arcu ornare id.
+              Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra, per inceptos himenaeos. Nulla ultricies posuere est.
+            </p>
+          </div>
           <DataReward
             modal={false}
             addAmount={addAmount}

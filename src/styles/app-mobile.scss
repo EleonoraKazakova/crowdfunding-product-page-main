@@ -43,7 +43,7 @@
   }
 
   .app-block {
-    padding: 40px 25px 40px 25px;
+    padding: 40px 20px 40px 20px;
     gap: 20px;
   }
 
@@ -56,6 +56,24 @@
   }
 
   .app-modal-content {
+    @include mixins.modal-content;
     width: 325px;
+    gap: 10px;  
+    padding: 10px;
+  }
+
+  .app-title {
+    @include mixins.app-title;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 280px;
+  }
+
+  .app-text {
+    padding: 0px 0 20px 0;
+  }
+
+  .app-crowdfund {
+    line-height: 0.7;
   }
 }

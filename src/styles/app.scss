@@ -35,16 +35,6 @@
     display: none;
   }
 
-  .app-itemsMenu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 20%;
-    font-size: 14pt;
-    font-weight: 400;
-    cursor: pointer;
-  }
-
   .app-menu {
     margin: 0 167px 0 167px;
     grid-column: 1 / 4;
@@ -52,7 +42,6 @@
 
   .app-block {
     padding: 50px;
-    gap: 50px;
   }
 
   .app-subtitle {
@@ -66,6 +55,35 @@
 
   .app-modal-content {
     width: 732px;
+    gap: 30px;  
+    padding: 30px 50px 30px 50px;
+  }
+
+  .app-title {
+    @include mixins.app-title;
+    flex-direction: column;
+  }
+
+  .app-text {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    line-height: 2;
+  }
+
+  .app-itemsMenu {
+    line-height: 0.9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 20%;
+    font-size: 14pt;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .app-text {
+    margin: 30px 0 50px 0;
   }
 }
 
@@ -93,7 +111,6 @@
   font-weight: 700;
 }
 
-
 .app-content {
   grid-column: 2 / 3;
   grid-row: 3 / 5;
@@ -116,8 +133,7 @@
 }
 
 .app-buttonBookmark {
-  background-color: styleGuide.$moderateCyan;
-  
+  background-color: styleGuide.$moderateCyan;  
   height: 56px;
   border-radius: 28px;
   display: flex;
@@ -137,6 +153,13 @@
   path {
     fill: white;
   }
+}
+
+.app-text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  line-height: 2;
 }
 
 .app-buttonBookmark-text {
@@ -163,6 +186,9 @@
   width: 16px;
   align-self: flex-end;
   cursor: pointer;
+  filter: black;
+  display: flex;
+  justify-content: end;
 }
 
 .app-closeSign:hover path {
